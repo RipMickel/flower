@@ -47,7 +47,7 @@ body {
   animation: growStem 3s ease-in-out forwards;
 }
 
-.petals {
+.leaves {
   position: absolute;
   bottom: 500px;
   width: 100px;
@@ -55,38 +55,38 @@ body {
   animation: bloom 3s 3s ease-in-out forwards;
 }
 
-.petal {
+.leaf {
   position: absolute;
   width: 50px;
   height: 100px;
-  background-color: pink;
+  background-color: lightgreen;
   border-radius: 50%;
   opacity: 0;
   transform-origin: bottom center;
-  animation: growPetal 1s ease-in-out forwards, sparkle 1.5s infinite alternate;
+  animation: growLeaf 1s ease-in-out forwards, sparkle 1.5s infinite alternate;
 }
 
-.petal1 {
+.leaf1 {
   transform: rotate(0deg);
   animation-delay: 3.5s;
 }
 
-.petal2 {
+.leaf2 {
   transform: rotate(72deg);
   animation-delay: 4s;
 }
 
-.petal3 {
+.leaf3 {
   transform: rotate(144deg);
   animation-delay: 4.5s;
 }
 
-.petal4 {
+.leaf4 {
   transform: rotate(216deg);
   animation-delay: 5s;
 }
 
-.petal5 {
+.leaf5 {
   transform: rotate(288deg);
   animation-delay: 5.5s;
 }
@@ -130,7 +130,7 @@ body {
   }
 }
 
-@keyframes growPetal {
+@keyframes growLeaf {
   0% {
     height: 0;
     opacity: 0;
@@ -163,12 +163,12 @@ body {
 
 @keyframes sparkle {
   0% {
-    background-color: pink;
-    box-shadow: 0 0 10px pink;
+    background-color: lightgreen;
+    box-shadow: 0 0 10px lightgreen;
   }
   100% {
-    background-color: purple;
-    box-shadow: 0 0 20px purple;
+    background-color: green;
+    box-shadow: 0 0 20px green;
   }
 }
 
@@ -196,23 +196,44 @@ body {
   }
 }
 
-.petal-drop {
+.bubbles {
   position: absolute;
-  width: 50px;
-  height: 100px;
-  background-color: pink;
-  border-radius: 50%;
-  opacity: 0;
-  animation: dropPetal 2s infinite;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-@keyframes dropPetal {
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: bubble 20s linear infinite;
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes bubble {
   0% {
-    transform: translateY(-50px);
+    transform: translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateY(300px);
+    transform: translateY(-1000px);
     opacity: 0;
   }
 }
