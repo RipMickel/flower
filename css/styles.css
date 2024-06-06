@@ -3,7 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to top, #87CEEB, #f0f8ff);
+  background: linear-gradient(to top, #000428, #004e92);
   margin: 0;
   overflow: hidden;
   flex-direction: column;
@@ -67,31 +67,32 @@ body {
   border-radius: 50%;
   opacity: 0;
   transform-origin: bottom center;
+  animation: growPetal 1s ease-in-out forwards, sparkle 1.5s infinite alternate;
 }
 
 .petal1 {
   transform: rotate(0deg);
-  animation: growPetal 1s 3.5s ease-in-out forwards;
+  animation-delay: 3.5s;
 }
 
 .petal2 {
   transform: rotate(72deg);
-  animation: growPetal 1s 4s ease-in-out forwards;
+  animation-delay: 4s;
 }
 
 .petal3 {
   transform: rotate(144deg);
-  animation: growPetal 1s 4.5s ease-in-out forwards;
+  animation-delay: 4.5s;
 }
 
 .petal4 {
   transform: rotate(216deg);
-  animation: growPetal 1s 5s ease-in-out forwards;
+  animation-delay: 5s;
 }
 
 .petal5 {
   transform: rotate(288deg);
-  animation: growPetal 1s 5.5s ease-in-out forwards;
+  animation-delay: 5.5s;
 }
 
 .center {
@@ -103,7 +104,7 @@ body {
   top: 35px;
   left: 35px;
   opacity: 0;
-  animation: growCenter 1s 6s ease-in-out forwards;
+  animation: growCenter 1s 6s ease-in-out forwards, pulse 1.5s infinite alternate;
 }
 
 @keyframes growStem {
@@ -155,39 +156,7 @@ body {
   }
 }
 
-.name {
-  font-size: 3em;
-  font-weight: bold;
-  margin-top: 20px;
-  color: #2f4f4f;
-  animation: animateName 5s ease-in-out infinite alternate;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.name::before, .name::after {
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background: pink;
-  border-radius: 50%;
-  animation: float 3s ease-in-out infinite alternate;
-}
-
-.name::before {
-  left: -60px;
-  animation-delay: 0.5s;
-}
-
-.name::after {
-  right: -60px;
-  animation-delay: 1s;
-}
-
-@keyframes animateName {
+@keyframes pulse {
   0% {
     transform: scale(1);
   }
@@ -196,11 +165,37 @@ body {
   }
 }
 
-@keyframes float {
+@keyframes sparkle {
   0% {
+    background-color: pink;
+    box-shadow: 0 0 10px pink;
+  }
+  100% {
+    background-color: purple;
+    box-shadow: 0 0 20px purple;
+  }
+}
+
+.name {
+  font-size: 3em;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #FFFFFF;
+  animation: animateName 5s 6s ease-in-out forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  opacity: 0;
+}
+
+@keyframes animateName {
+  0% {
+    opacity: 0;
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-20px);
+    opacity: 1;
+    transform: translateY(-50px);
   }
 }
